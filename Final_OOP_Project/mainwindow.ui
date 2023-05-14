@@ -35,7 +35,7 @@ QComboBox:focus {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>13</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="Login">
        <widget class="QWidget" name="formLayoutWidget">
@@ -274,7 +274,7 @@ QPushButton:pressed {
          <string notr="true">QPushButton {
     border: none;
     padding: 0px;
-    color: blue;
+    color: #6a1b9a;
    
 }
 
@@ -1730,26 +1730,20 @@ QPushButton:pressed {
        <widget class="QWidget" name="gridLayoutWidget_5">
         <property name="geometry">
          <rect>
-          <x>150</x>
+          <x>60</x>
           <y>140</y>
-          <width>451</width>
-          <height>107</height>
+          <width>620</width>
+          <height>228</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="1">
-          <widget class="QLabel" name="addDishLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Dish</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="addTextEdit"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="addDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -1769,22 +1763,6 @@ QPushButton:pressed {
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="addInstructionLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Instructions</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="addRecipeLabel">
            <property name="font">
@@ -1794,7 +1772,23 @@ QPushButton:pressed {
             </font>
            </property>
            <property name="text">
-            <string>Recipe</string>
+            <string>Recipe Name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="addDishLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dish</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -1823,30 +1817,32 @@ QLineEdit:focus {
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="addDishComboBox">
-           <property name="editable">
-            <bool>true</bool>
+         <item row="0" column="3">
+          <widget class="QLabel" name="addInstructionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QComboBox" name="addIngredientComboBox">
-           <property name="editable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QTextEdit" name="addTextEdit"/>
+          <widget class="QListWidget" name="listWidgetIngredients"/>
          </item>
         </layout>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_6">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>260</y>
+          <x>260</x>
+          <y>400</y>
           <width>168</width>
           <height>36</height>
          </rect>
@@ -2482,7 +2478,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="searchdishBox">
            <property name="editable">
             <bool>true</bool>
            </property>
@@ -3107,7 +3103,7 @@ QPushButton:pressed {
          <string notr="true">QPushButton {
     border: none;
     padding: 0px;
-    color: blue;
+    color: #6a1b9a;
    
 }
 

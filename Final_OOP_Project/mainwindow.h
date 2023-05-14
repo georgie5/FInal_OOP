@@ -12,6 +12,9 @@
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrinter>
 #include <QPainter>
+#include <QListWidget>
+#include <QListWidgetItem>
+#include <QCheckBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -114,6 +117,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Database *db;
+    QListWidget *listWidget;
 };
 
 #endif // MAINWINDOW_H

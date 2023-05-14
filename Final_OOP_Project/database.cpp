@@ -172,10 +172,13 @@ QSqlQuery Database::searchByposition()
 
     return qry;
 }
+
 QSqlQuery Database::searchByAllusers()
 {
     QSqlQuery qry;
-    qry.prepare("SELECT * FROM persons");
+    qry.prepare("SELECT pe.ID, pe.Name, pe.UserID, pe.Password, po.position "
+                "FROM persons pe "
+                "JOIN position po ON pe.PositionID = po.ID ");
 
     if (!qry.exec()) {
         qDebug() << "Querry error: " << qry.lastError().text();
@@ -183,6 +186,7 @@ QSqlQuery Database::searchByAllusers()
 
     return qry;
 }
+//----
 bool Database::addRecipe(QString Name, int DishID, int IngredientID, QString Instruction)
 {
     QSqlQuery query;
@@ -200,6 +204,44 @@ bool Database::addRecipe(QString Name, int DishID, int IngredientID, QString Ins
         qDebug() << "recipe was not added" << query.lastError().text();
     }
     return insert;
+}
+
+QStringList Database::getDishTypes()
+{
+    QStringList positionTypes;
+
+    QSqlQuery qry;
+    qry.prepare("SELECT DishType FROM dish");
+
+    if (!qry.exec()) {
+        qDebug() << "Failed to retrieve dish types: " << qry.lastError().text();
+        return positionTypes;
+    }
+
+    while (qry.next()) {
+        positionTypes << qry.value(0).toString();
+    }
+
+    return positionTypes;
+}
+
+QStringList Database::getIngredients()
+{
+    QStringList ingredients;
+
+    QSqlQuery qry;
+    qry.prepare("SELECT IngredientName FROM ingredient");
+
+    if (!qry.exec()) {
+        qDebug() << "Failed to retrieve ingredients: " << qry.lastError().text();
+        return ingredients;
+    }
+
+    while (qry.next()) {
+        ingredients << qry.value(0).toString();
+    }
+
+    return ingredients;
 }
 
 bool Database::editRecipe(QString Name, int DishID, int IngredientID, int ID, QString Instruction)

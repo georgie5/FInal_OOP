@@ -29,6 +29,8 @@ public:
     QSqlQuery searchForUser(QString userText);
     QStringList getPositionTypes();
     QSqlQuery searchByAllusers();
+    QStringList getDishTypes();
+    QStringList getIngredients();
 };
 
 #endif // DATABASE_H

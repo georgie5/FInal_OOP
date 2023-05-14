@@ -28,6 +28,42 @@ MainWindow::MainWindow(QWidget *parent)
     ui->editPositionComboBox->setCurrentIndex(-1);
     ui->deletePositionComboBox->setCurrentIndex(-1);
 
+
+    //populate dish types in dish combobox
+     QStringList dishTypes = db->getDishTypes();
+     if(dishTypes.empty())
+     {
+        qDebug() << "Failed to retrieve dish types.";
+     }
+     else {
+            ui->addDishComboBox->clear();
+            ui->addDishComboBox->addItems(dishTypes);
+            ui->editDishComboBox->clear();
+            ui->editDishComboBox->addItems(dishTypes);
+            ui->searchdishBox->clear();
+            ui->searchdishBox->addItems(dishTypes);
+          }
+     ui->addDishComboBox->setCurrentIndex(-1);
+     ui->editDishComboBox->setCurrentIndex(-1);
+     ui->searchdishBox->setCurrentIndex(-1);
+
+     // Populate ingredients list widget
+     QStringList ingredients = db->getIngredients();
+
+     // Create a grid layout to hold the checkbox and label widgets
+     QGridLayout *gridLayout = new QGridLayout();
+
+     // Add the checkbox and label widgets to the grid layout
+     for (int i = 0; i < ingredients.size(); i++) {
+         QCheckBox *checkBox = new QCheckBox();
+         QLabel *label = new QLabel(ingredients[i]);
+
+         gridLayout->addWidget(checkBox, i, 0);
+         gridLayout->addWidget(label, i, 1);
+     }
+
+     // Set the layout of the widget to the grid layout
+     ui->listWidgetIngredients->setLayout(gridLayout);
 }
 
 MainWindow::~MainWindow()
