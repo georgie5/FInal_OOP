@@ -47,23 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
      ui->editDishComboBox->setCurrentIndex(-1);
      ui->searchdishBox->setCurrentIndex(-1);
 
-     // Populate ingredients list widget
-     QStringList ingredients = db->getIngredients();
 
-     // Create a grid layout to hold the checkbox and label widgets
-     QGridLayout *gridLayout = new QGridLayout();
-
-     // Add the checkbox and label widgets to the grid layout
-     for (int i = 0; i < ingredients.size(); i++) {
-         QCheckBox *checkBox = new QCheckBox();
-         QLabel *label = new QLabel(ingredients[i]);
-
-         gridLayout->addWidget(checkBox, i, 0);
-         gridLayout->addWidget(label, i, 1);
-     }
-
-     // Set the layout of the widget to the grid layout
-     ui->listWidgetIngredients->setLayout(gridLayout);
 }
 
 MainWindow::~MainWindow()
@@ -278,7 +262,26 @@ void MainWindow::on_myRecipeButton_clicked()
 
 void MainWindow::on_createRecipeButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    QString recipeName = ui->addRecipenameEdit->text();
+    int dishID = ui->addDishComboBox->currentIndex() + 1;
+    QStringList ingredientsList = ui->addIngredientText->toPlainText().split("\n", Qt::SkipEmptyParts);
+    QString recipeInstructions = ui->addInstructionsEdit->toPlainText();
+
+    // Check if all fields are inputted
+    if (recipeName.isEmpty() || dishID == -1 || ingredientsList.isEmpty() || recipeInstructions.isEmpty()) {
+        QMessageBox::warning(this, "New recipe", "Please fill all the required fields.");
+        return;
+    }
+
+    // Call the addRecipe function with the recipe's data as arguments
+    if (db->addRecipe(recipeName, dishID, ingredientsList, recipeInstructions)) {
+        qDebug() << "Recipe added successfully!";
+        QMessageBox::information(this, "New Recipe", "Recipe added successfully");
+    } else {
+        qDebug() << "Failed to add recipe.";
+        QMessageBox::warning(this, "New Recipe", "Failed to add Recipe");
+    }
+
 }
 
 
@@ -475,4 +478,6 @@ void MainWindow::on_createAccountButton_clicked()
     ui->registerPassword->clear();
 
 }
+
+
 

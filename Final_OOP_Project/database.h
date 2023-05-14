@@ -21,7 +21,7 @@ public:
     bool editUser(QString, QString , QString, int, int);
     bool removeUser(int userID);
     QSqlQuery searchByposition();
-    bool addRecipe(QString,int,int,QString);
+    bool addRecipe(QString, int, QStringList, QString);
     bool editRecipe(QString,int,int, int, QString);
     bool deleteRecipe(QString,int,int, int, QString);
     bool searchForRecipe(int,QString);

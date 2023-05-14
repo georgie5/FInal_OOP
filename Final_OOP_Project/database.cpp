@@ -187,13 +187,14 @@ QSqlQuery Database::searchByAllusers()
     return qry;
 }
 //----
-bool Database::addRecipe(QString Name, int DishID, int IngredientID, QString Instruction)
+bool Database::addRecipe(QString Name, int DishID, QStringList Ingredientlist, QString Instruction)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO recipe (RecipeName, DishID, IngredientID, Instruction) VALUES (:name, :dishid, :ingredientid, :instruction)");
+    QString ingredients = Ingredientlist.join(", "); // Join the ingredients with comma separator
+    query.prepare("INSERT INTO recipe (RecipeName, DishID, Ingredient, Instruction) VALUES (:name, :dishid, :ingredients, :instruction)");
     query.bindValue(":name", Name);
     query.bindValue(":dishid", DishID);
-    query.bindValue(":ingredientid", IngredientID);
+    query.bindValue(":ingredients", ingredients);
     query.bindValue(":instruction", Instruction);
 
     bool insert = false;
@@ -202,6 +203,7 @@ bool Database::addRecipe(QString Name, int DishID, int IngredientID, QString Ins
         insert = true;
     } else {
         qDebug() << "recipe was not added" << query.lastError().text();
+        qDebug() << "Parameters:" << Name<<DishID<<Ingredientlist<<Instruction;
     }
     return insert;
 }

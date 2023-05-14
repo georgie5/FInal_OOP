@@ -1738,7 +1738,7 @@ QPushButton:pressed {
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
          <item row="1" column="3">
-          <widget class="QTextEdit" name="addTextEdit"/>
+          <widget class="QTextEdit" name="addInstructionsEdit"/>
          </item>
          <item row="1" column="1">
           <widget class="QComboBox" name="addDishComboBox">
@@ -1796,7 +1796,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLineEdit" name="addRecipeEdit">
+          <widget class="QLineEdit" name="addRecipenameEdit">
            <property name="styleSheet">
             <string notr="true">QLineEdit {
   border: 2px solid #ccc; /* add a border */
@@ -1833,16 +1833,16 @@ QLineEdit:focus {
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QListWidget" name="listWidgetIngredients"/>
+         <item row="1" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
+          <widget class="QTextEdit" name="addIngredientText"/>
          </item>
         </layout>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_6">
         <property name="geometry">
          <rect>
-          <x>260</x>
-          <y>400</y>
+          <x>300</x>
+          <y>410</y>
           <width>168</width>
           <height>36</height>
          </rect>
