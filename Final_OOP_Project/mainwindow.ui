@@ -1,0 +1,3160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: white; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QComboBox:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>13</number>
+      </property>
+      <widget class="QWidget" name="Login">
+       <widget class="QWidget" name="formLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>110</y>
+          <width>311</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="formAlignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <item row="2" column="1">
+          <widget class="QLabel" name="usernameLabel">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="usernameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="passwordLabel">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="passwordEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>105</red>
+                 <green>105</green>
+                 <blue>105</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>26</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Login</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Maximum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>9</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>370</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="loginButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Login</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="passwordLabel_5">
+        <property name="geometry">
+         <rect>
+          <x>274</x>
+          <y>410</y>
+          <width>131</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Dont have an account?</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="RegisterButton">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>420</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    border: none;
+    padding: 0px;
+    color: blue;
+   
+}
+
+QPushButton:hover {
+    color: red;
+}</string>
+        </property>
+        <property name="text">
+         <string>REGISTER</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="AdminDash">
+       <widget class="QLabel" name="adminLabel">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>20</y>
+          <width>281</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Admin Dashboard</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>90</y>
+          <width>112</width>
+          <height>261</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="addUserButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Add User</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editUserButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Edit User</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteUserButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Delete User</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="reportButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Report</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="logoutButton">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Logout</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="AddUser">
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>390</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="addButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="formLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>10</y>
+          <width>271</width>
+          <height>365</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="addUserLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>26</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Add User</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="addNameLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Name:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="addNameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="addUsernameLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="addUsernameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="addPasswordLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="addPasswordEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="addPositionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Position:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="addPositionBox">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="insertPolicy">
+            <enum>QComboBox::NoInsert</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="EditUser">
+       <widget class="QLabel" name="editUserLabel">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>30</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Edit User</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editSearchButton">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>160</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>200</y>
+          <width>491</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="1">
+          <widget class="QLabel" name="editUseridLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="editPasswordLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="editPositionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Position</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="editUsernameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="editPasswordEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="editNameLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="editNameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="editPositionComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>320</y>
+          <width>222</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="changeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Change</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_2">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="useridLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>110</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="editsearchUserinput">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>103</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edit_userID">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>100</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="DeleteUser">
+       <widget class="QLabel" name="deleteUserLabel">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>10</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Delete User</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteSearchtButton">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>140</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Search</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>170</y>
+          <width>471</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="1">
+          <widget class="QLabel" name="deleteUseridLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="deletePasswordLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="deletePositionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Position</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="deleteUseridEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="deletePasswordEdi">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="deleteNameLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="deleteNameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="deletePositionComboBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="insertPolicy">
+            <enum>QComboBox::NoInsert</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>290</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QPushButton" name="deleteButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_3">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="useridLabel_3">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>97</y>
+          <width>101</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="deletesearchUserinput">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>90</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="delete_userID">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>90</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Report">
+       <widget class="QLabel" name="reportLabel">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>10</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Report</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="positionLabel">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>100</y>
+          <width>91</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Search By:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="reportComboBox">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>91</y>
+          <width>231</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>All users</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Position</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="generateButton">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>140</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>generate</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="reportTableView">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>180</y>
+          <width>521</width>
+          <height>201</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>400</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QPushButton" name="printButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Print</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_4">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="UserDash">
+       <widget class="QLabel" name="userLabel">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>30</y>
+          <width>231</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>User Dashboard</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>120</y>
+          <width>128</width>
+          <height>271</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="addRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Add Recipe</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Edit Recipe</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deleteRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Delete Recipe</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="searchRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Search Recipe</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="myRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>My Recipes</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="logoutButton_2">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Logout</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="AddRecipe">
+       <widget class="QLabel" name="createRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>40</y>
+          <width>201</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Create Recipe</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>140</y>
+          <width>451</width>
+          <height>107</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="1">
+          <widget class="QLabel" name="addDishLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="addIngredientLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ingredients</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="addInstructionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="addRecipeLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Recipe</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="addRecipeEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="addDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="addIngredientComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="addTextEdit"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_6">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>260</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QPushButton" name="createRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_5">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="EditRecipe">
+       <widget class="QLabel" name="editRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>20</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Edit Recipe</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_6">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>220</y>
+          <width>451</width>
+          <height>107</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="1">
+          <widget class="QLabel" name="editDishLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="editIngredientLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ingredients</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="editInstructionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="EditRecipeLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Recipe</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="editRecipeEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="editDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="editIngredientComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="editTextEdit"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_7">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>330</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <widget class="QPushButton" name="editButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Edit</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_6">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QComboBox" name="editRecipeComboBox">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>100</y>
+          <width>221</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editRecipeSelectButton">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>160</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>240</red>
+              <green>240</green>
+              <blue>240</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="DeleteRecipe">
+       <widget class="QLabel" name="deleteRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>20</y>
+          <width>211</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Delete Recipe</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="deleteRecipeComboBox">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>100</y>
+          <width>221</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteRecipeSelectButton">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>140</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>240</red>
+              <green>240</green>
+              <blue>240</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Select</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_7">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>190</y>
+          <width>451</width>
+          <height>107</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="1">
+          <widget class="QLabel" name="deleteDishLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="deleteIngredientLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Ingredients</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="deleteInstructionLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="deleteRecipeLabel_2">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Recipe</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="deleteRecipeEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="deleteDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="deleteIngredientComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="deleteTextEdit"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>300</y>
+          <width>168</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QPushButton" name="removeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_7">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="SearchForRecipe">
+       <widget class="QWidget" name="horizontalLayoutWidget_9">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>70</y>
+          <width>501</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <widget class="QLabel" name="searchDishLabel">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="comboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="searchRecipeLabel_2">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Recipe</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchRecipeEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_10">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>450</y>
+          <width>160</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <widget class="QPushButton" name="viewButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>View</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_8">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="searchRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>10</y>
+          <width>251</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>24</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Search for Recipes</string>
+        </property>
+       </widget>
+       <widget class="QTableView" name="searchView">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>130</y>
+          <width>501</width>
+          <height>301</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="ViewRecipe">
+       <widget class="QListView" name="listView">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>30</y>
+          <width>511</width>
+          <height>391</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_11">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>430</y>
+          <width>160</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QPushButton" name="PrintButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Print</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backButton_9">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="MyRecipe">
+       <widget class="QPushButton" name="backButton_10">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>460</y>
+          <width>80</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_8">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>380</y>
+          <width>281</width>
+          <height>76</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="myAddRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="myEditRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Edit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="myDeleteRecipeButton">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="myRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>10</y>
+          <width>231</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+          <underline>true</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string>My Recipes</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignHCenter|Qt::AlignTop</set>
+        </property>
+       </widget>
+       <widget class="QListView" name="listView_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>60</y>
+          <width>421</width>
+          <height>311</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Register">
+       <widget class="QWidget" name="formLayoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>226</x>
+          <y>72</y>
+          <width>311</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout_3">
+         <property name="formAlignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <item row="4" column="1">
+          <widget class="QLabel" name="usernameLabel_3">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="registerUsername">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLabel" name="passwordLabel_3">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Password:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="registerPassword">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_3">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>255</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>105</red>
+                 <green>105</green>
+                 <blue>105</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Shadow">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>0</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>26</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Register</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="passwordLabel_4">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="registerName">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Maximum</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>9</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="createAccountButton">
+        <property name="geometry">
+         <rect>
+          <x>296</x>
+          <y>402</y>
+          <width>166</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Create Account</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="LoginpageButton">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>450</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    border: none;
+    padding: 0px;
+    color: blue;
+   
+}
+
+QPushButton:hover {
+    color: red;
+}</string>
+        </property>
+        <property name="text">
+         <string>LOGIN</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="passwordLabel_6">
+        <property name="geometry">
+         <rect>
+          <x>296</x>
+          <y>442</y>
+          <width>111</width>
+          <height>38</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Already signed up?</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

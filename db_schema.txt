@@ -1,0 +1,136 @@
+DROP TABLE IF EXISTS `connection`;
+CREATE TABLE IF NOT EXISTS `connection` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `PersonID` int NOT NULL,
+  `RecipeID` int NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `PersonID` (`PersonID`),
+  KEY `RecipeID` (`RecipeID`)
+)
+
+DROP TABLE IF EXISTS `dish`;
+CREATE TABLE IF NOT EXISTS `dish` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `DishType` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+)
+
+INSERT INTO `dish` (`ID`, `DishType`) VALUES
+(1, 'Creole'),
+(2, 'Garifuna'),
+(4, 'Mestizo'),
+(5, 'Chinese'),
+(6, 'Italian'),
+(7, 'Mayan');
+
+INSERT INTO `ingredient` (`ID`, `IngredientName`, `QuantityID`, `MeasurementID`) VALUES
+(1, 'Sugar', 1, 4);
+
+DROP TABLE IF EXISTS `measurement`;
+CREATE TABLE IF NOT EXISTS `measurement` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `MeasurementName` varchar(100) NOT NULL,
+  `MeasurementID` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+)
+
+INSERT INTO `measurement` (`ID`, `MeasurementName`, `MeasurementID`) VALUES
+(1, 'Teaspoon', 'tsp'),
+(2, 'Ounce', 'oz'),
+(3, 'Cup', 'c'),
+(4, 'Pound', 'lb'),
+(5, 'Tablespoon', 'tbsp'),
+(6, 'Fluid Ounce', 'fl.oz'),
+(7, 'Quart', 'qt'),
+(8, 'Pint', 'pt'),
+(9, 'Gallon', 'gal'),
+(10, 'Milliliter', 'mL'),
+(11, 'gram', 'g'),
+(12, 'Kilogram', 'kg'),
+(13, 'liter', 'l'),
+(14, 'Stick', 'stick'),
+(15, 'Celsius', 'C'),
+(16, 'Fahrenheit', 'F');
+
+DROP TABLE IF EXISTS `ingredient`;
+CREATE TABLE IF NOT EXISTS `ingredient` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `IngredientName` varchar(100) NOT NULL,
+  `QuantityID` int DEFAULT NULL,
+  `MeasurementID` int DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `QuantityID` (`QuantityID`),
+  KEY `MeasurementID` (`MeasurementID`)
+)
+
+DROP TABLE IF EXISTS `persons`;
+CREATE TABLE IF NOT EXISTS `persons` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `UserID` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `PositionID` int DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `PositionID` (`PositionID`)
+);
+
+INSERT INTO `persons` (`ID`, `Name`, `UserID`, `Password`, `PositionID`) VALUES
+(1, 'John Wick', 'jwick', 'P@ssword1', 1),
+(2, 'Christian Hope', 'chope', 'P@ssword1', 2);
+
+DROP TABLE IF EXISTS `position`;
+CREATE TABLE IF NOT EXISTS `position` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `position` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+)
+
+INSERT INTO `position` (`ID`, `position`) VALUES
+(1, 'Admin'),
+(2, 'User');
+
+DROP TABLE IF EXISTS `quantity`;
+CREATE TABLE IF NOT EXISTS `quantity` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ID`)
+)
+
+INSERT INTO `quantity` (`ID`) VALUES
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10);
+
+DROP TABLE IF EXISTS `recipe`;
+CREATE TABLE IF NOT EXISTS `recipe` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `RecipeName` varchar(255) DEFAULT NULL,
+  `DishID` int NOT NULL,
+  `IngredientID` int NOT NULL,
+  `Instruction` longtext NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DishID` (`DishID`),
+  KEY `IngredientID` (`IngredientID`)
+)
+
+ALTER TABLE `connection`
+  ADD CONSTRAINT `connection_ibfk_1` FOREIGN KEY (`PersonID`) REFERENCES `persons` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `connection_ibfk_2` FOREIGN KEY (`RecipeID`) REFERENCES `recipe` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `ingredient`
+  ADD CONSTRAINT `ingredient_ibfk_1` FOREIGN KEY (`QuantityID`) REFERENCES `quantity` (`ID`),
+  ADD CONSTRAINT `ingredient_ibfk_2` FOREIGN KEY (`MeasurementID`) REFERENCES `measurement` (`ID`);
+
+ALTER TABLE `persons`
+  ADD CONSTRAINT `persons_ibfk_1` FOREIGN KEY (`PositionID`) REFERENCES `position` (`ID`);
+
+ALTER TABLE `recipe`
+  ADD CONSTRAINT `recipe_ibfk_1` FOREIGN KEY (`DishID`) REFERENCES `dish` (`ID`),
+  ADD CONSTRAINT `recipe_ibfk_2` FOREIGN KEY (`IngredientID`) REFERENCES `ingredient` (`ID`);
+COMMIT;
