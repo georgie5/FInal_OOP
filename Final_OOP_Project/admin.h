@@ -4,11 +4,32 @@
 
 #include "baseuser.h"
 
+#include <string>
+#include "baseuser.h"
+#include <iostream>
 
-class Admin: public BaseUser
-{
+using namespace std;
+
+class Admin : public BaseUser {
 public:
     Admin();
+
+    bool addUser(string, string, string, int);
+
+    bool editUser(string, string , string, int, int);
+
+    bool removeUser(int);
+
+    void searchByposition();
+
+    string searchForUser(string);
+
+    string getPositionTypes();
+
+    string searchByAllusers();
+
+    int getCurrentUserID();
+
 };
 
 #endif // ADMIN_H

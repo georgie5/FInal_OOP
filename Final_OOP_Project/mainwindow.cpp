@@ -565,7 +565,7 @@ void MainWindow::on_recipeEditButton_clicked()
      ui->editInstructionsEdit->clear();
      ui->editRecipename->clear();
      ui->edit_recipeID->clear();
-     ui->recipeSearchInput->clear()
+     ui->recipeSearchInput->clear();
 }
 
 

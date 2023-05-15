@@ -37,7 +37,7 @@ QComboBox:focus {
 </string>
       </property>
       <property name="currentIndex">
-       <number>11</number>
+       <number>12</number>
       </property>
       <widget class="QWidget" name="Login">
        <widget class="QWidget" name="formLayoutWidget">
@@ -3175,6 +3175,11 @@ QPushButton:pressed {
           <width>421</width>
           <height>311</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
         </property>
        </widget>
        <widget class="QPushButton" name="myrecipeviewButton">
