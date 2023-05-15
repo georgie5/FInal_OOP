@@ -37,7 +37,7 @@ QComboBox:focus {
 </string>
       </property>
       <property name="currentIndex">
-       <number>9</number>
+       <number>11</number>
       </property>
       <widget class="QWidget" name="Login">
        <widget class="QWidget" name="formLayoutWidget">
@@ -1729,117 +1729,6 @@ QPushButton:pressed {
          <string>Create Recipe</string>
         </property>
        </widget>
-       <widget class="QWidget" name="gridLayoutWidget_5">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>140</y>
-          <width>620</width>
-          <height>228</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="1" column="3">
-          <widget class="QTextEdit" name="addInstructionsEdit"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="addDishComboBox">
-           <property name="editable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="addIngredientLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Ingredients</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="addRecipeLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Recipe Name</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="addDishLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Dish</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLineEdit" name="addRecipenameEdit">
-           <property name="styleSheet">
-            <string notr="true">QLineEdit {
-  border: 2px solid #ccc; /* add a border */
-  border-radius: 4px; /* round the corners */
-  font-size: 16px; /* increase font size */
-  padding: 6px 12px; /* add some padding */
-  background-color: #fff; /* set background color */
-  color: #333; /* set font color */
-  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
-}
-
-QLineEdit:focus {
-  outline: none; /* remove the default focus outline */
-  border-color: #6a1b9a; /* set border color when focused */
-  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
-}
-</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="addInstructionLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Instructions</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
-          <widget class="QTextEdit" name="addIngredientText"/>
-         </item>
-        </layout>
-       </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_6">
         <property name="geometry">
          <rect>
@@ -1900,7 +1789,156 @@ QPushButton:pressed {
 </string>
            </property>
            <property name="text">
-            <string>Back</string>
+            <string>Home</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="gridFrame_8">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>130</y>
+          <width>711</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> 
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="addInstructionsEdit">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="addDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="addIngredientLabel_4">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Ingredients</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="addRecipeLabel_4">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Recipe Name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="addDishLabel_4">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="addRecipenameEdit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="addInstructionLabel_4">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
+          <widget class="QTextEdit" name="addIngredientText">
+           <property name="font">
+            <font>
+             <family>SimSun-ExtB</family>
+             <pointsize>10</pointsize>
+            </font>
            </property>
           </widget>
          </item>
@@ -1930,7 +1968,7 @@ QPushButton:pressed {
        <widget class="QWidget" name="horizontalLayoutWidget_7">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>290</x>
           <y>450</y>
           <width>168</width>
           <height>36</height>
@@ -1987,7 +2025,7 @@ QPushButton:pressed {
 </string>
            </property>
            <property name="text">
-            <string>Back</string>
+            <string>Home</string>
            </property>
           </widget>
          </item>
@@ -2055,9 +2093,9 @@ QPushButton:pressed {
        <widget class="QFrame" name="gridFrame_6">
         <property name="geometry">
          <rect>
-          <x>59</x>
+          <x>29</x>
           <y>200</y>
-          <width>621</width>
+          <width>711</width>
           <height>228</height>
          </rect>
         </property>
@@ -2194,7 +2232,7 @@ QLineEdit:focus {
            <property name="font">
             <font>
              <family>SimSun-ExtB</family>
-             <pointsize>14</pointsize>
+             <pointsize>10</pointsize>
             </font>
            </property>
           </widget>
@@ -2362,7 +2400,7 @@ QPushButton:pressed {
 </string>
            </property>
            <property name="text">
-            <string>Back</string>
+            <string>Home</string>
            </property>
           </widget>
          </item>
@@ -2371,9 +2409,9 @@ QPushButton:pressed {
        <widget class="QFrame" name="gridFrame_7">
         <property name="geometry">
          <rect>
-          <x>70</x>
+          <x>30</x>
           <y>210</y>
-          <width>621</width>
+          <width>711</width>
           <height>228</height>
          </rect>
         </property>
@@ -2522,7 +2560,7 @@ QLineEdit:focus {
            <property name="font">
             <font>
              <family>SimSun-ExtB</family>
-             <pointsize>14</pointsize>
+             <pointsize>10</pointsize>
             </font>
            </property>
            <property name="readOnly">
@@ -2681,7 +2719,7 @@ QLineEdit:focus {
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_11">
          <item>
-          <widget class="QLabel" name="searchDishLabel">
+          <widget class="QLabel" name="searchRecipeLabel_3">
            <property name="font">
             <font>
              <family>Tempus Sans ITC</family>
@@ -2689,14 +2727,20 @@ QLineEdit:focus {
             </font>
            </property>
            <property name="text">
-            <string>Dish</string>
+            <string>Dish:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="searchdishBox">
-           <property name="editable">
+          <widget class="QComboBox" name="searchDishComboBox">
+           <property name="enabled">
             <bool>true</bool>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="insertPolicy">
+            <enum>QComboBox::NoInsert</enum>
            </property>
           </widget>
          </item>
@@ -2709,12 +2753,12 @@ QLineEdit:focus {
             </font>
            </property>
            <property name="text">
-            <string>Recipe</string>
+            <string>Recipe Name:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="searchRecipeEdit">
+          <widget class="QLineEdit" name="searchRecipenameinput">
            <property name="styleSheet">
             <string notr="true">QLineEdit {
   border: 2px solid #ccc; /* add a border */
@@ -2748,7 +2792,7 @@ QLineEdit:focus {
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_12">
          <item>
-          <widget class="QPushButton" name="viewButton">
+          <widget class="QPushButton" name="viewrecipeButton">
            <property name="styleSheet">
             <string notr="true">QPushButton {
   border: 2px solid #ccc; /* add a border */
@@ -2822,24 +2866,86 @@ QPushButton:pressed {
          <string>Search for Recipes</string>
         </property>
        </widget>
-       <widget class="QTableView" name="searchView">
+       <widget class="QTableView" name="searchrecipeView">
         <property name="geometry">
          <rect>
           <x>140</x>
-          <y>130</y>
+          <y>170</y>
           <width>501</width>
-          <height>301</height>
+          <height>261</height>
          </rect>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="searchRecipeSearchButton">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>130</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>240</red>
+              <green>240</green>
+              <blue>240</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Select</string>
         </property>
        </widget>
       </widget>
       <widget class="QWidget" name="ViewRecipe">
-       <widget class="QListView" name="listView">
+       <widget class="QTableView" name="recipeTableView">
         <property name="geometry">
          <rect>
-          <x>140</x>
+          <x>10</x>
           <y>30</y>
-          <width>511</width>
+          <width>761</width>
           <height>391</height>
          </rect>
         </property>
@@ -2848,7 +2954,7 @@ QPushButton:pressed {
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>430</y>
+          <y>460</y>
           <width>160</width>
           <height>41</height>
          </rect>
@@ -2904,7 +3010,7 @@ QPushButton:pressed {
 </string>
            </property>
            <property name="text">
-            <string>Back</string>
+            <string>Home</string>
            </property>
           </widget>
          </item>
@@ -2948,7 +3054,7 @@ QPushButton:pressed {
        <widget class="QWidget" name="gridLayoutWidget_8">
         <property name="geometry">
          <rect>
-          <x>270</x>
+          <x>190</x>
           <y>380</y>
           <width>281</width>
           <height>76</height>
@@ -3061,7 +3167,7 @@ QPushButton:pressed {
          <set>Qt::AlignHCenter|Qt::AlignTop</set>
         </property>
        </widget>
-       <widget class="QListView" name="listView_2">
+       <widget class="QListView" name="myrecipeView">
         <property name="geometry">
          <rect>
           <x>190</x>
@@ -3069,6 +3175,39 @@ QPushButton:pressed {
           <width>421</width>
           <height>311</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="myrecipeviewButton">
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>400</y>
+          <width>76</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QPushButton:hover {
+  background-color: #eee; /* change background color when hovered */
+}
+
+QPushButton:pressed {
+  background-color: #ccc; /* change background color when pressed */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>View</string>
         </property>
        </widget>
       </widget>
@@ -3298,8 +3437,8 @@ QPushButton:pressed {
        <widget class="QPushButton" name="LoginpageButton">
         <property name="geometry">
          <rect>
-          <x>400</x>
-          <y>450</y>
+          <x>414</x>
+          <y>448</y>
           <width>51</width>
           <height>20</height>
          </rect>
@@ -3334,8 +3473,8 @@ QPushButton:hover {
        <widget class="QLabel" name="passwordLabel_6">
         <property name="geometry">
          <rect>
-          <x>296</x>
-          <y>442</y>
+          <x>310</x>
+          <y>440</y>
           <width>111</width>
           <height>38</height>
          </rect>

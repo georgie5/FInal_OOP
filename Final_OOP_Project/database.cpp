@@ -258,14 +258,11 @@ bool Database::editRecipe(QString Name, int DishID, QStringList Ingredient, QStr
     return true;
 }
 
-bool Database::deleteRecipe(QString Name, int DishID, int IngredientID, int ID, QString Instruction)
+bool Database::deleteRecipe( int ID )
 {
     QSqlQuery qry;
-    qry.prepare("DELETE FROM recipe RecipeName = :name, DishID = :dishid, IngredientID = :ingredientid, Instruction = :instruction WHERE ID = :id ");
-    qry.bindValue(":name", Name);
-    qry.bindValue(":dishid", DishID);
-    qry.bindValue(":ingredientid", IngredientID);
-    qry.bindValue(":instruction", Instruction);
+    qry.prepare("DELETE FROM recipe WHERE recipe_ID = :id ");
+
     qry.bindValue(":id", ID);
 
     if( !qry.exec() ){
@@ -291,6 +288,21 @@ QSqlQuery Database::searchForRecipe(QString Name)
     return qry;
 }
 
+QSqlQuery Database::getUserRecipes()
+{
+    int userId = getCurrentUserID().toInt();
+
+    QSqlQuery qry;
+    qry.prepare("SELECT RecipeName FROM recipe WHERE userID = :userID");
+    qry.bindValue(":userID", userId);
+
+    if (!qry.exec()) {
+        qDebug() << "Failed to get user recipes: " << qry.lastError().text();
+    }
+
+    return qry;
+}
+
 bool Database::myRecipe(int PersonID)
 {
     QSqlQuery qry;
@@ -304,3 +316,58 @@ bool Database::myRecipe(int PersonID)
     }
     return true;
 }
+
+QString Database::getDishName(int dishId)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT DishType FROM dish WHERE ID = :id ");
+    qry.bindValue(":id", dishId);
+
+    if (!qry.exec()) {
+        qDebug() << "Dish name retrieval failed: " << qry.lastError().text();
+        return ""; // return a default value or display an error message here
+    }
+
+    if (qry.next()) {
+        return qry.value(0).toString();
+    } else {
+        qDebug() << "Dish not found";
+        return ""; // return a default value or display an error message here
+    }
+}
+
+QSqlQuery Database::searchBydishType(QString dishtype)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT r.RecipeName, d.DishType, r.Ingredient, r.Instruction "
+                "FROM recipe r "
+                "JOIN dish d ON r.DishID = d.ID "
+                "WHERE d.DishType = :dishtype ");
+
+    qry.bindValue(":dishtype", dishtype);
+
+    if (!qry.exec()) {
+        qDebug() << "Failed to search by dishtype. " << db.lastError().text();
+         qDebug()<<"Query: "<<qry.lastQuery();
+    }
+
+    return qry;
+}
+QSqlQuery Database::searchByRecipeName(QString recipeName)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT r.RecipeName, d.DishType, r.Ingredient, r.Instruction "
+                "FROM recipe r "
+                "JOIN dish d ON r.DishID = d.ID "
+                "WHERE r.RecipeName = :recipename ");
+
+    qry.bindValue(":recipename", recipeName);
+
+    if (!qry.exec()) {
+        qDebug() << "Failed to search by dishtype. " << db.lastError().text();
+         qDebug()<<"Query: "<<qry.lastQuery();
+    }
+
+    return qry;
+}
+

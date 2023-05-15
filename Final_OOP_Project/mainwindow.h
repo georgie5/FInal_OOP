@@ -15,6 +15,8 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QCheckBox>
+#include <QStandardItemModel>
+#include <QSqlQueryModel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +33,7 @@ public:
 
     void populatePositionsComboBox();
 
+    void clearRecipeNameInput();
 private slots:
     void on_loginButton_clicked();
 
@@ -82,7 +85,7 @@ private slots:
 
     void on_backButton_7_clicked();
 
-    void on_viewButton_clicked();
+
 
     void on_backButton_8_clicked();
 
@@ -121,6 +124,16 @@ private slots:
     void on_deleteresipeButton_clicked();
 
     void on_deleteRecipeSearchButton_clicked();
+
+    void on_searchRecipeSearchButton_clicked();
+
+    void on_myrecipeviewButton_clicked();
+
+    void on_viewrecipeButton_clicked();
+
+    void on_searchRecipenameinput_cursorPositionChanged(int arg1, int arg2);
+
+
 
 private:
     Ui::MainWindow *ui;

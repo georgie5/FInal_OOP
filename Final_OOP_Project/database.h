@@ -26,15 +26,18 @@ public:
     QSqlQuery searchByposition();
     bool addRecipe(QString, int, QStringList, QString);
     bool editRecipe(QString, int, QStringList, QString, int resipeID);
-    bool deleteRecipe(QString,int,int, int, QString);
+    bool deleteRecipe(int);
     QSqlQuery searchForRecipe(QString);
     bool myRecipe(int);
     QSqlQuery searchForUser(QString userText);
     QStringList getPositionTypes();
     QSqlQuery searchByAllusers();
     QStringList getDishTypes();
-    QStringList getIngredients();
     QString getCurrentUserID() const;
+    QSqlQuery getUserRecipes();
+    QString getDishName(int dishId);
+    QSqlQuery searchBydishType(QString);
+    QSqlQuery searchByRecipeName(QString);
 };
 
 #endif // DATABASE_H

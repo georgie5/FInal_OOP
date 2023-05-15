@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Set the login stack widget page as the current index
+    ui->stackedWidget->setCurrentIndex(0);
+
     // create a new instance of the Database class
     db = new Database();
 
@@ -27,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->addPositionBox->setCurrentIndex(-1);
     ui->editPositionComboBox->setCurrentIndex(-1);
     ui->deletePositionComboBox->setCurrentIndex(-1);
-
+    ui->searchDishComboBox->setCurrentIndex(-1);
 
     //populate dish types in dish combobox
      QStringList dishTypes = db->getDishTypes();
@@ -44,11 +47,16 @@ MainWindow::MainWindow(QWidget *parent)
 
             ui->deleteDishComboBox->clear();
             ui->deleteDishComboBox->addItems(dishTypes);
+
+            ui->searchDishComboBox->clear();
+            ui->searchDishComboBox->addItems(dishTypes);
           }
      ui->addDishComboBox->setCurrentIndex(-1);
      ui->editDishComboBox->setCurrentIndex(-1);
      ui->deleteDishComboBox->setCurrentIndex(-1);
+     ui->searchDishComboBox->setCurrentIndex(-1);
 
+   connect(ui->searchDishComboBox, &QComboBox::activated, this, &MainWindow::clearRecipeNameInput);
 
 }
 
@@ -259,6 +267,18 @@ void MainWindow::on_searchRecipeButton_clicked()
 void MainWindow::on_myRecipeButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(12);
+
+    // Get the user's recipes
+    QSqlQuery qry = db->getUserRecipes();
+
+    // Populate the QListView with the recipe names
+    QStringListModel *model = new QStringListModel();
+    QStringList recipeNames;
+    while (qry.next()) {
+        recipeNames << qry.value(0).toString();
+    }
+    model->setStringList(recipeNames);
+    ui->myrecipeView->setModel(model);
 }
 
 
@@ -283,6 +303,12 @@ void MainWindow::on_createRecipeButton_clicked()
         qDebug() << "Failed to add recipe.";
         QMessageBox::warning(this, "New Recipe", "Failed to add Recipe");
     }
+
+    ui->addRecipenameEdit->clear();
+    ui->addDishComboBox->setCurrentIndex(-1);
+    ui->addIngredientText->clear();
+    ui->addInstructionsEdit->clear();
+
 
 }
 
@@ -317,12 +343,6 @@ void MainWindow::on_backButton_7_clicked()
 }
 
 
-void MainWindow::on_viewButton_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(11);
-}
-
-
 void MainWindow::on_backButton_8_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
@@ -331,13 +351,20 @@ void MainWindow::on_backButton_8_clicked()
 
 void MainWindow::on_PrintButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintDialog dialog(&printer, this);
+
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        QPainter painter(&printer);
+        ui->recipeTableView->render(&painter);
+    }
 }
 
 
 void MainWindow::on_backButton_9_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(10);
+    ui->stackedWidget->setCurrentIndex(6);
 }
 
 
@@ -356,12 +383,22 @@ void MainWindow::on_myAddRecipeButton_clicked()
 void MainWindow::on_myEditRecipeButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(8);
+
+    // get the selected recipe name
+    QString recipeName = ui->myrecipeView->currentIndex().data().toString();
+
+    ui->recipeSearchInput->setText(recipeName);
 }
 
 
 void MainWindow::on_myDeleteRecipeButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(9);
+
+    // get the selected recipe name
+    QString recipeName = ui->myrecipeView->currentIndex().data().toString();
+
+    ui->deleterecipeSearchInput->setText(recipeName);
 }
 
 
@@ -515,7 +552,7 @@ void MainWindow::on_recipeEditButton_clicked()
     // call the addUser function with the person's data as arguments
     if (db->editRecipe(recipeName, dishID, ingredientsList, recipeInstructions, userID) ) {
         qDebug() << "Recipe updated successfully!";
-        QMessageBox::information(this,  "Success", "The User information was Recipe successfully.");
+        QMessageBox::information(this,  "Success", "Recipe updated successfully!");
     } else {
         qDebug() << "Failed to update Recipe.";
         QMessageBox::warning(this,"Error", "There was an error updating the Recipe information.");
@@ -528,6 +565,7 @@ void MainWindow::on_recipeEditButton_clicked()
      ui->editInstructionsEdit->clear();
      ui->editRecipename->clear();
      ui->edit_recipeID->clear();
+     ui->recipeSearchInput->clear()
 }
 
 
@@ -572,4 +610,143 @@ void MainWindow::on_deleteRecipeSearchButton_clicked()
         QMessageBox::warning(this, "Error", "Recipe not found.");
     }
 }
+
+
+void MainWindow::on_searchRecipeSearchButton_clicked()
+{
+
+    // Get the search input values
+    QString dishType = ui->searchDishComboBox->currentText();
+    QString recipeName = ui->searchRecipenameinput->text();
+
+    QSqlQueryModel *model = new QSqlQueryModel;
+
+    if(!dishType.isEmpty())
+    {
+         // Search by dish type
+        model->setQuery(db->searchBydishType(dishType));
+        ui->searchrecipeView->setModel(model);
+    }
+    else if(!recipeName.isEmpty())
+    {
+        // Search by recipename
+        model->setQuery(db->searchByRecipeName(recipeName));
+        ui->searchrecipeView->setModel(model);
+    }
+
+}
+
+
+void MainWindow::on_myrecipeviewButton_clicked()
+{
+
+
+    // get the selected recipe name
+    QString recipeName = ui->myrecipeView->currentIndex().data().toString();
+
+    // search for the recipe in the database
+    QSqlQuery result = db->searchForRecipe(recipeName);
+
+    if (result.next())
+    {
+        // create a new model to hold the recipe details
+        QStandardItemModel *model = new QStandardItemModel();
+        model->setColumnCount(4);
+        model->setHorizontalHeaderItem(0, new QStandardItem("Recipe Name"));
+        model->setHorizontalHeaderItem(1, new QStandardItem("Dish Type"));
+        model->setHorizontalHeaderItem(2, new QStandardItem("Ingredients"));
+        model->setHorizontalHeaderItem(3, new QStandardItem("Instructions"));
+
+        // add the recipe details to the model
+        QString dishName = db->getDishName(result.value("DishID").toInt());
+        QString ingredients = result.value("Ingredient").toString().replace(", ", "\n");
+        model->setItem(0, 0, new QStandardItem(result.value("RecipeName").toString()));
+        model->setItem(0, 1, new QStandardItem(dishName));
+        model->setItem(0, 2, new QStandardItem(ingredients));
+        model->setItem(0, 3, new QStandardItem(result.value("Instruction").toString()));
+
+        // set the model to the table view
+        ui->recipeTableView->setModel(model);
+        ui->recipeTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        ui->recipeTableView->horizontalHeader()->setStretchLastSection(true);
+
+        // set the row height and maximum height
+        QFontMetrics fm(ui->recipeTableView->font());
+        int rowHeight = qMax(fm.height()*20, ui->recipeTableView->rowHeight(20));
+        ui->recipeTableView->setRowHeight(10, rowHeight);
+        ui->recipeTableView->verticalHeader()->setDefaultSectionSize(rowHeight);
+        ui->recipeTableView->verticalHeader()->setMaximumSectionSize(rowHeight);
+
+        ui->stackedWidget->setCurrentIndex(11);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Recipe not found.");
+    }
+}
+
+
+void MainWindow::on_viewrecipeButton_clicked()
+{
+    // Get the selected row index from the table view
+    QModelIndexList selectedrecipe = ui->searchrecipeView->selectionModel()->selectedIndexes();
+
+
+    QString recipeName = selectedrecipe.at(0).siblingAtColumn(0).data().toString();
+
+    // search for the recipe in the database
+    QSqlQuery result = db->searchByRecipeName(recipeName);
+
+    if (result.next())
+    {
+        // create a new model to hold the recipe details
+        QStandardItemModel *model = new QStandardItemModel();
+        model->setColumnCount(4);
+        model->setHorizontalHeaderItem(0, new QStandardItem("Recipe Name"));
+        model->setHorizontalHeaderItem(1, new QStandardItem("Dish Type"));
+        model->setHorizontalHeaderItem(2, new QStandardItem("Ingredients"));
+        model->setHorizontalHeaderItem(3, new QStandardItem("Instructions"));
+
+        // add the recipe details to the model
+
+        QString ingredients = result.value("Ingredient").toString().replace(", ", "\n");
+        model->setItem(0, 0, new QStandardItem(result.value("RecipeName").toString()));
+        model->setItem(0, 1, new QStandardItem(result.value("DishType").toString()));
+        model->setItem(0, 2, new QStandardItem(ingredients));
+        model->setItem(0, 3, new QStandardItem(result.value("Instruction").toString()));
+
+        // set the model to the table view
+        ui->recipeTableView->setModel(model);
+        ui->recipeTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        ui->recipeTableView->horizontalHeader()->setStretchLastSection(true);
+
+        // set the row height and maximum height
+        QFontMetrics fm(ui->recipeTableView->font());
+        int rowHeight = qMax(fm.height()*20, ui->recipeTableView->rowHeight(20));
+        ui->recipeTableView->setRowHeight(10, rowHeight);
+        ui->recipeTableView->verticalHeader()->setDefaultSectionSize(rowHeight);
+        ui->recipeTableView->verticalHeader()->setMaximumSectionSize(rowHeight);
+
+        ui->stackedWidget->setCurrentIndex(11);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Error", "Recipe not found. Make sure to select a recipe");
+
+    }
+
+}
+
+void MainWindow::clearRecipeNameInput()
+{
+    ui->searchRecipenameinput->clear();
+}
+
+void MainWindow::on_searchRecipenameinput_cursorPositionChanged(int arg1, int arg2)
+{
+    ui->searchDishComboBox->setCurrentIndex(-1);
+}
+
+
+
 
