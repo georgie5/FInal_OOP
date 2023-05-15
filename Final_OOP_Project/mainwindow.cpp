@@ -38,14 +38,16 @@ MainWindow::MainWindow(QWidget *parent)
      else {
             ui->addDishComboBox->clear();
             ui->addDishComboBox->addItems(dishTypes);
+
             ui->editDishComboBox->clear();
             ui->editDishComboBox->addItems(dishTypes);
-            ui->searchdishBox->clear();
-            ui->searchdishBox->addItems(dishTypes);
+
+            ui->deleteDishComboBox->clear();
+            ui->deleteDishComboBox->addItems(dishTypes);
           }
      ui->addDishComboBox->setCurrentIndex(-1);
      ui->editDishComboBox->setCurrentIndex(-1);
-     ui->searchdishBox->setCurrentIndex(-1);
+     ui->deleteDishComboBox->setCurrentIndex(-1);
 
 
 }
@@ -480,4 +482,94 @@ void MainWindow::on_createAccountButton_clicked()
 }
 
 
+void MainWindow::on_editRecipeSelectButton_clicked()
+{
+    QString userText = ui->recipeSearchInput->text();
+
+    // search for the user by username
+    QSqlQuery result = db->searchForRecipe(userText);
+
+    if (result.next())
+    {
+        // fill in the employee information fields
+        ui->editRecipename->setText(result.value("RecipeName").toString());
+        ui->editDishComboBox->setCurrentIndex(result.value("DishID").toInt() - 1);
+        ui->editIngredientText->setText(result.value("Ingredient").toString().replace(", ", "\n"));
+        ui->editInstructionsEdit->setText(result.value("Instruction").toString());
+        ui->edit_recipeID->setText(result.value("recipe_ID").toString());
+    } else {
+        QMessageBox::warning(this, "Error", "Recipe not found.");
+    }
+}
+
+
+void MainWindow::on_recipeEditButton_clicked()
+{
+    QString recipeName = ui->editRecipename->text();
+    int dishID = ui->editDishComboBox->currentIndex() + 1;
+    QStringList ingredientsList = ui->editIngredientText->toPlainText().split("\n", Qt::SkipEmptyParts);
+    QString recipeInstructions = ui->editInstructionsEdit->toPlainText();
+
+    int userID = ui->edit_recipeID->text().toInt();
+
+    // call the addUser function with the person's data as arguments
+    if (db->editRecipe(recipeName, dishID, ingredientsList, recipeInstructions, userID) ) {
+        qDebug() << "Recipe updated successfully!";
+        QMessageBox::information(this,  "Success", "The User information was Recipe successfully.");
+    } else {
+        qDebug() << "Failed to update Recipe.";
+        QMessageBox::warning(this,"Error", "There was an error updating the Recipe information.");
+    }
+
+    // clear the text fields and reset the combobox to the first item
+     ui->editRecipename->clear();
+     ui->editDishComboBox->setCurrentIndex(-1);
+     ui->editIngredientText->clear();
+     ui->editInstructionsEdit->clear();
+     ui->editRecipename->clear();
+     ui->edit_recipeID->clear();
+}
+
+
+void MainWindow::on_deleteresipeButton_clicked()
+{
+    int userID = ui->delete_recipeID->text().toInt();
+    // Remove the selected user from the database
+    bool remove = db->deleteRecipe(userID);
+
+    if (remove) {
+        QMessageBox::information(this, "Success", "Recipe has been deleted.");
+    } else {
+        QMessageBox::warning(this, "Error", "Failed to delete recipe.");
+    }
+    // fill in the employee information fields
+    ui->deleteRecipename->clear();
+    ui->deleteDishComboBox->clear();
+    ui->deleteIngredientText->clear();
+    ui->deleteInstructionsEdit->clear();
+    ui->delete_recipeID->clear();
+    ui->deleterecipeSearchInput->clear();
+}
+
+
+void MainWindow::on_deleteRecipeSearchButton_clicked()
+{
+    QString userText = ui->deleterecipeSearchInput->text();
+
+    // search for the user by username
+    QSqlQuery result = db->searchForRecipe(userText);
+
+    if (result.next())
+    {
+        // fill in the employee information fields
+        ui->deleteRecipename->setText(result.value("RecipeName").toString());
+        ui->deleteDishComboBox->setCurrentIndex(result.value("DishID").toInt() - 1);
+        ui->deleteIngredientText->setText(result.value("Ingredient").toString().replace(", ", "\n"));
+        ui->deleteInstructionsEdit->setText(result.value("Instruction").toString());
+        ui->delete_recipeID->setText(result.value("recipe_ID").toString());
+
+    } else {
+        QMessageBox::warning(this, "Error", "Recipe not found.");
+    }
+}
 

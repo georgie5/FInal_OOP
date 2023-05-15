@@ -32,10 +32,12 @@ QComboBox:focus {
   outline: none; /* remove the default focus outline */
   border-color: #6a1b9a; /* set border color when focused */
   box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
-}</string>
+}
+
+</string>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="Login">
        <widget class="QWidget" name="formLayoutWidget">
@@ -1925,133 +1927,18 @@ QPushButton:pressed {
          <string>Edit Recipe</string>
         </property>
        </widget>
-       <widget class="QWidget" name="gridLayoutWidget_6">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>220</y>
-          <width>451</width>
-          <height>107</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="0" column="1">
-          <widget class="QLabel" name="editDishLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Dish</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="editIngredientLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Ingredients</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="editInstructionLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Instructions</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="EditRecipeLabel">
-           <property name="font">
-            <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Recipe</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLineEdit" name="editRecipeEdit">
-           <property name="styleSheet">
-            <string notr="true">QLineEdit {
-  border: 2px solid #ccc; /* add a border */
-  border-radius: 4px; /* round the corners */
-  font-size: 16px; /* increase font size */
-  padding: 6px 12px; /* add some padding */
-  background-color: #fff; /* set background color */
-  color: #333; /* set font color */
-  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
-}
-
-QLineEdit:focus {
-  outline: none; /* remove the default focus outline */
-  border-color: #6a1b9a; /* set border color when focused */
-  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
-}
-</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="editDishComboBox">
-           <property name="editable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QComboBox" name="editIngredientComboBox">
-           <property name="editable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QTextEdit" name="editTextEdit"/>
-         </item>
-        </layout>
-       </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_7">
         <property name="geometry">
          <rect>
-          <x>260</x>
-          <y>330</y>
+          <x>270</x>
+          <y>450</y>
           <width>168</width>
           <height>36</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
-          <widget class="QPushButton" name="editButton">
+          <widget class="QPushButton" name="recipeEditButton">
            <property name="styleSheet">
             <string notr="true">QPushButton {
   border: 2px solid #ccc; /* add a border */
@@ -2106,24 +1993,11 @@ QPushButton:pressed {
          </item>
         </layout>
        </widget>
-       <widget class="QComboBox" name="editRecipeComboBox">
-        <property name="geometry">
-         <rect>
-          <x>250</x>
-          <y>100</y>
-          <width>221</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
        <widget class="QPushButton" name="editRecipeSelectButton">
         <property name="geometry">
          <rect>
           <x>310</x>
-          <y>160</y>
+          <y>150</y>
           <width>91</width>
           <height>24</height>
          </rect>
@@ -2178,132 +2052,55 @@ QPushButton:pressed {
          <string>Select</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="DeleteRecipe">
-       <widget class="QLabel" name="deleteRecipeLabel">
+       <widget class="QFrame" name="gridFrame_6">
         <property name="geometry">
          <rect>
-          <x>260</x>
-          <y>20</y>
-          <width>211</width>
-          <height>71</height>
+          <x>59</x>
+          <y>200</y>
+          <width>621</width>
+          <height>228</height>
          </rect>
         </property>
-        <property name="font">
-         <font>
-          <family>Tempus Sans ITC</family>
-          <pointsize>26</pointsize>
-         </font>
+        <property name="styleSheet">
+         <string notr="true"> 
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+</string>
         </property>
-        <property name="text">
-         <string>Delete Recipe</string>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
         </property>
-       </widget>
-       <widget class="QComboBox" name="deleteRecipeComboBox">
-        <property name="geometry">
-         <rect>
-          <x>240</x>
-          <y>100</y>
-          <width>221</width>
-          <height>22</height>
-         </rect>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
         </property>
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="deleteRecipeSelectButton">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>140</y>
-          <width>91</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="palette">
-         <palette>
-          <active>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </active>
-          <inactive>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>240</red>
-              <green>240</green>
-              <blue>240</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </inactive>
-          <disabled>
-           <colorrole role="Button">
-            <brush brushstyle="SolidPattern">
-             <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </brush>
-           </colorrole>
-          </disabled>
-         </palette>
-        </property>
-        <property name="font">
-         <font>
-          <family>Times New Roman</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Select</string>
-        </property>
-       </widget>
-       <widget class="QWidget" name="gridLayoutWidget_7">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>190</y>
-          <width>451</width>
-          <height>107</height>
-         </rect>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_5">
-         <item row="0" column="1">
-          <widget class="QLabel" name="deleteDishLabel">
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="editInstructionsEdit">
            <property name="font">
             <font>
-             <family>Tempus Sans ITC</family>
-             <pointsize>16</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>Dish</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="editDishComboBox">
+           <property name="editable">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item row="0" column="2">
-          <widget class="QLabel" name="deleteIngredientLabel">
+          <widget class="QLabel" name="addIngredientLabel_2">
            <property name="font">
             <font>
              <family>Tempus Sans ITC</family>
              <pointsize>16</pointsize>
             </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
            </property>
            <property name="text">
             <string>Ingredients</string>
@@ -2313,32 +2110,38 @@ QPushButton:pressed {
            </property>
           </widget>
          </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="deleteInstructionLabel">
+         <item row="0" column="0">
+          <widget class="QLabel" name="addRecipeLabel_2">
            <property name="font">
             <font>
              <family>Tempus Sans ITC</family>
              <pointsize>16</pointsize>
             </font>
            </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
            <property name="text">
-            <string>Instructions</string>
+            <string>Recipe Name</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="deleteRecipeLabel_2">
+         <item row="0" column="1">
+          <widget class="QLabel" name="addDishLabel_2">
            <property name="font">
             <font>
              <family>Tempus Sans ITC</family>
              <pointsize>16</pointsize>
             </font>
            </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
            <property name="text">
-            <string>Recipe</string>
+            <string>Dish</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -2346,7 +2149,7 @@ QPushButton:pressed {
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLineEdit" name="deleteRecipeEdit">
+          <widget class="QLineEdit" name="editRecipename">
            <property name="styleSheet">
             <string notr="true">QLineEdit {
   border: 2px solid #ccc; /* add a border */
@@ -2367,37 +2170,150 @@ QLineEdit:focus {
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="deleteDishComboBox">
-           <property name="editable">
-            <bool>true</bool>
+         <item row="0" column="3">
+          <widget class="QLabel" name="addInstructionLabel_2">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
-         <item row="1" column="2">
-          <widget class="QComboBox" name="deleteIngredientComboBox">
-           <property name="editable">
-            <bool>true</bool>
+         <item row="1" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
+          <widget class="QTextEdit" name="editIngredientText">
+           <property name="font">
+            <font>
+             <family>SimSun-ExtB</family>
+             <pointsize>14</pointsize>
+            </font>
            </property>
           </widget>
-         </item>
-         <item row="1" column="3">
-          <widget class="QTextEdit" name="deleteTextEdit"/>
          </item>
         </layout>
+       </widget>
+       <widget class="QLineEdit" name="recipeSearchInput">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>93</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="useridLabel_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>100</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Recipe Name:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="edit_recipeID">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>510</x>
+          <y>90</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recipe code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="DeleteRecipe">
+       <widget class="QLabel" name="deleteRecipeLabel">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>30</y>
+          <width>211</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>26</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Delete Recipe</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
        <widget class="QWidget" name="horizontalLayoutWidget_8">
         <property name="geometry">
          <rect>
-          <x>260</x>
-          <y>300</y>
+          <x>300</x>
+          <y>460</y>
           <width>168</width>
           <height>36</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
-          <widget class="QPushButton" name="removeButton">
+          <widget class="QPushButton" name="deleteresipeButton">
            <property name="styleSheet">
             <string notr="true">QPushButton {
   border: 2px solid #ccc; /* add a border */
@@ -2451,6 +2367,306 @@ QPushButton:pressed {
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QFrame" name="gridFrame_7">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>210</y>
+          <width>621</width>
+          <height>228</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> 
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="1" column="3">
+          <widget class="QTextEdit" name="deleteInstructionsEdit">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="deleteDishComboBox">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <property name="insertPolicy">
+            <enum>QComboBox::NoInsert</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="addIngredientLabel_3">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Ingredients</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="addRecipeLabel_3">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Recipe Name</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="addDishLabel_3">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Dish</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLineEdit" name="deleteRecipename">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}
+</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="addInstructionLabel_3">
+           <property name="font">
+            <font>
+             <family>Tempus Sans ITC</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Panel</enum>
+           </property>
+           <property name="text">
+            <string>Instructions</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2" alignment="Qt::AlignHCenter|Qt::AlignTop">
+          <widget class="QTextEdit" name="deleteIngredientText">
+           <property name="font">
+            <font>
+             <family>SimSun-ExtB</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLineEdit" name="deleterecipeSearchInput">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>113</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+  border: 2px solid #ccc; /* add a border */
+  border-radius: 4px; /* round the corners */
+  font-size: 16px; /* increase font size */
+  padding: 6px 12px; /* add some padding */
+  background-color: #fff; /* set background color */
+  color: #333; /* set font color */
+  font-family: &quot;Times New Roman&quot;, Times, serif; /* set font family */
+}
+
+QLineEdit:focus {
+  outline: none; /* remove the default focus outline */
+  border-color: #6a1b9a; /* set border color when focused */
+  box-shadow: 0 0 5px #6a1b9a; /* add a subtle box-shadow when focused */
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="delete_recipeID">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>110</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>13</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recipe code&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="useridLabel_5">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>120</y>
+          <width>121</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Tempus Sans ITC</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Recipe Name:</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="deleteRecipeSearchButton">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>170</y>
+          <width>91</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>240</red>
+              <green>240</green>
+              <blue>240</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Select</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="SearchForRecipe">

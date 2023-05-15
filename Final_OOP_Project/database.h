@@ -13,6 +13,9 @@ class Database
 {
 private:
     QSqlDatabase db;
+    QString currentUserID;
+    QString currentUsername;
+
 public:
     Database();
     ~Database();
@@ -22,15 +25,16 @@ public:
     bool removeUser(int userID);
     QSqlQuery searchByposition();
     bool addRecipe(QString, int, QStringList, QString);
-    bool editRecipe(QString,int,int, int, QString);
+    bool editRecipe(QString, int, QStringList, QString, int resipeID);
     bool deleteRecipe(QString,int,int, int, QString);
-    bool searchForRecipe(int,QString);
+    QSqlQuery searchForRecipe(QString);
     bool myRecipe(int);
     QSqlQuery searchForUser(QString userText);
     QStringList getPositionTypes();
     QSqlQuery searchByAllusers();
     QStringList getDishTypes();
     QStringList getIngredients();
+    QString getCurrentUserID() const;
 };
 
 #endif // DATABASE_H

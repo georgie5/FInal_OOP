@@ -58,6 +58,8 @@ QStringList Database::verifyUser(QString userName, QString password)
         qDebug() <<"Login query failed "<< db.lastError();
     }
 
+
+
     QStringList result;
 
     if(qry.next()){
@@ -67,9 +69,15 @@ QStringList Database::verifyUser(QString userName, QString password)
         result << qry.value("UserID").toString();
         result << qry.value("PositionID").toString();
         result << qry.value("position").toString();
+        currentUserID = qry.value("ID").toString();
     }
 
     return result;
+}
+
+QString Database::getCurrentUserID() const
+{
+    return currentUserID;
 }
 
 bool Database::addUser(QString name, QString userid, QString password, int positionID)
@@ -189,21 +197,24 @@ QSqlQuery Database::searchByAllusers()
 //----
 bool Database::addRecipe(QString Name, int DishID, QStringList Ingredientlist, QString Instruction)
 {
+
+    int userId = getCurrentUserID().toInt(); // get the ID of the current user
+
     QSqlQuery query;
     QString ingredients = Ingredientlist.join(", "); // Join the ingredients with comma separator
-    query.prepare("INSERT INTO recipe (RecipeName, DishID, Ingredient, Instruction) VALUES (:name, :dishid, :ingredients, :instruction)");
+    query.prepare("SET FOREIGN_KEY_CHECKS=0; INSERT INTO recipe (RecipeName, DishID, Ingredient, Instruction, userID) VALUES (:name, :dishid, :ingredients, :instruction, :userid); SET FOREIGN_KEY_CHECKS=1;");
     query.bindValue(":name", Name);
     query.bindValue(":dishid", DishID);
     query.bindValue(":ingredients", ingredients);
     query.bindValue(":instruction", Instruction);
+    query.bindValue(":userid", userId);
 
     bool insert = false;
 
     if (query.exec()) {
         insert = true;
     } else {
-        qDebug() << "recipe was not added" << query.lastError().text();
-        qDebug() << "Parameters:" << Name<<DishID<<Ingredientlist<<Instruction;
+        qDebug() << "recipe was not added to database" << query.lastError().text();
     }
     return insert;
 }
@@ -227,37 +238,21 @@ QStringList Database::getDishTypes()
     return positionTypes;
 }
 
-QStringList Database::getIngredients()
-{
-    QStringList ingredients;
 
-    QSqlQuery qry;
-    qry.prepare("SELECT IngredientName FROM ingredient");
-
-    if (!qry.exec()) {
-        qDebug() << "Failed to retrieve ingredients: " << qry.lastError().text();
-        return ingredients;
-    }
-
-    while (qry.next()) {
-        ingredients << qry.value(0).toString();
-    }
-
-    return ingredients;
-}
-
-bool Database::editRecipe(QString Name, int DishID, int IngredientID, int ID, QString Instruction)
+bool Database::editRecipe(QString Name, int DishID, QStringList Ingredient, QString Instruction, int resipeID )
 {
     QSqlQuery qry;
-    qry.prepare("UPDATE recipe SET RecipeName = :name, DishID = :dishid, IngredientID = :ingredientid, Instruction = :instruction WHERE ID = :id ");
+    QString ingredients = Ingredient.join(", "); // Join the ingredients with comma separator
+    qry.prepare("UPDATE recipe SET RecipeName = :name, DishID = :dishid, Ingredient = :ingredientid, Instruction = :instruction WHERE recipe_ID = :id ");
     qry.bindValue(":name", Name);
     qry.bindValue(":dishid", DishID);
-    qry.bindValue(":ingredientid", IngredientID);
+    qry.bindValue(":ingredientid", ingredients);
     qry.bindValue(":instruction", Instruction);
-    qry.bindValue(":id", ID);
+    qry.bindValue(":id", resipeID);
 
     if( !qry.exec() ){
         qDebug()<<"Updating recipe information in the database failed. ID "<< db.lastError();
+        qDebug() << "Parameters:" << Name<<DishID<<Ingredient<<Instruction<<resipeID;
         return false;
     }
     return true;
@@ -275,23 +270,25 @@ bool Database::deleteRecipe(QString Name, int DishID, int IngredientID, int ID, 
 
     if( !qry.exec() ){
         qDebug()<<"Removing recipe from the database failed. " << db.lastError();
+
         return false;
     }
     return true;
 }
 
-bool Database::searchForRecipe(int DishID,QString Name)
+QSqlQuery Database::searchForRecipe(QString Name)
 {
+    int userId = getCurrentUserID().toInt();
     QSqlQuery qry;
-    qry.prepare("SELECT RecipeName = :name FROM recipe WHERE DishID = :dishid ");
-    qry.bindValue(":name",Name);
-    qry.bindValue(":dishid",DishID);
+    qry.prepare("SELECT * FROM recipe WHERE RecipeName = :name AND userID = :userId");
+    qry.bindValue(":name", Name);
+    qry.bindValue(":userId", userId);
 
-    if( !qry.exec() ){
-        qDebug()<<"Searching for recipe from the database failed. " << db.lastError();
-        return false;
+    if (!qry.exec()) {
+        qDebug() << "Recipe search failed: " << qry.lastError().text();
     }
-    return true;
+
+    return qry;
 }
 
 bool Database::myRecipe(int PersonID)
@@ -302,6 +299,7 @@ bool Database::myRecipe(int PersonID)
 
     if( !qry.exec() ){
         qDebug()<<"Searching for recipe from the database failed. " << db.lastError();
+
         return false;
     }
     return true;

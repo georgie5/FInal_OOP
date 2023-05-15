@@ -114,6 +114,14 @@ private slots:
 
     void on_createAccountButton_clicked();
 
+    void on_editRecipeSelectButton_clicked();
+
+    void on_recipeEditButton_clicked();
+
+    void on_deleteresipeButton_clicked();
+
+    void on_deleteRecipeSearchButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Database *db;
